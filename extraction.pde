@@ -2,7 +2,7 @@
 
 PVector location; 
 PVector velocity;
-float ellipseSize = 10;
+float ellipseSize = 20;
 
 void setup(){
   size(1200,800, P2D);
@@ -10,19 +10,20 @@ void setup(){
   background(#17CBFF);
   noStroke();
   location = new PVector(600, -100);
-  velocity = new PVector(0, 2);
+  velocity = new PVector(0, 5);
 }
 
 void draw(){
+  background(#17CBFF);
   fill(#FF6517);
   rect(0, (height/3)*2, width, 400);
   
-  if (location.y < 500 && ellipseSize < 100) {
-    ellipseSize++;
-  } else if (location.y == 500) {
+  if (location.y < 520 && ellipseSize < 120) {
+    ellipseSize += 0.4;
+  } else if (location.y == 520) {
     ellipseSize += 50;
-  } else {
-    ellipseSize--;
+    location = new PVector(600, -100);
+    ellipseSize = 20;
   }
   
   location.add(velocity);
